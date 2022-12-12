@@ -1,3 +1,5 @@
+require("isomorphic-fetch");
+
 const sum = (a, b) => {
   return a + b;
 };
@@ -12,9 +14,17 @@ const reverse = (str) => {
   }
 };
 
-console.log(reverse("Ana"));
+const getFirstTodo = async () => {
+  let req = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  let result = await req.json();
+
+  return result;
+};
+
+console.log(getFirstTodo(), "getFirstTodo");
 
 module.exports = {
   sum,
   reverse,
+  getFirstTodo,
 };
