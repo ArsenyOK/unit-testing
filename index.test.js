@@ -46,3 +46,40 @@ test("Fetch request returns Todo object", async () => {
 
   await expect(result.title).toBe(objTodo.title);
 });
+
+// Order of Execution
+
+describe("describe 1-2 console.log", () => {
+  test("test 1", () => console.log("test 1"));
+
+  test("test 2", () => console.log("test 2"));
+});
+
+describe("Using mock methond", () => {
+  const a = {
+    age: 15,
+  };
+
+  const returnThis = function () {
+    return this.age;
+  };
+
+  const myMock = jest.fn(() => {
+    return this.age;
+  });
+
+  const bound = myMock.bind(a);
+  console.log(bound(), "bound");
+
+  console.log(myMock.mock.contexts, "contexts");
+
+  test("Length of context", () => {
+    expect(myMock.mock.calls.length).toBe(1);
+  });
+});
+
+describe("Testing solusion function", () => {
+  test(`abcdefad equels ['ab','cd', 'ef', 'a_']`, () => {
+    expect(fun.solution("abcdefa")).toBe(`["ab","cd","ef","a_"]`);
+  });
+});

@@ -21,10 +21,26 @@ const getFirstTodo = async () => {
   return result;
 };
 
-console.log(getFirstTodo(), "getFirstTodo");
+function solution(str) {
+  const arr = str.split("");
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let item;
+    if (arr[i + 1] !== undefined) {
+      item = arr[i] + arr[i + 1];
+    } else {
+      item = arr[i] + "_";
+    }
+    result.push(item);
+    i++;
+  }
+
+  return JSON.stringify(result);
+}
 
 module.exports = {
   sum,
   reverse,
   getFirstTodo,
+  solution,
 };
