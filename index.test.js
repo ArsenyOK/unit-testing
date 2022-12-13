@@ -6,6 +6,10 @@ test("adds 5 + 10 to equal 15", () => {
   expect(fun.sum(5, 10)).toBe(5 + 10);
 });
 
+test("Find Max number of Array", () => {
+  expect(Math.max.apply(null, [1, 20, 400, 3])).toBe(400);
+});
+
 test("Context this", () => {
   const obj = {
     id: 1,
@@ -48,6 +52,18 @@ test("Fetch request returns Todo object", async () => {
 });
 
 // Order of Execution
+
+describe("Using toEqual() method", () => {
+  test("Compare two array", () => {
+    const arr = ["banana", "apple", "orange"];
+
+    expect(arr).toEqual(["banana", "apple", "orange"]);
+  });
+
+  test("Compate two array with using function", () => {
+    expect(fun.returnArray()).toEqual([123, "pineapple", "sword", 0]);
+  });
+});
 
 describe("describe 1-2 console.log", () => {
   test("test 1", () => console.log("test 1"));

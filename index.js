@@ -38,9 +38,14 @@ function solution(str) {
   return JSON.stringify(result);
 }
 
+const returnArray = () => {
+  return [123, "pineapple", "sword", 0];
+};
+
 module.exports = {
   sum,
   reverse,
   getFirstTodo,
   solution,
+  returnArray,
 };
